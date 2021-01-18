@@ -1,0 +1,27 @@
+<h2>Total Mensual de Kilogramos de carne {{ carneTotal.toFixed(2) }}</h2>
+<br />
+<h2>Total Mensual de Kilogramos de hierbas {{ hierbasTotal.toFixed(2) }}</h2>
+<br />
+<br />
+<nz-table #basicTable [nzData]="animales">
+  <thead>
+    <tr>
+      <th *ngFor="let h of headers">{{ h }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let animal of animales">
+      <td>{{ animal.tipo }}</td>
+      <td>{{ animal.especie }}</td>
+      <td>{{ animal.peso }}</td>
+      <td>{{ animal.edad }}</td>
+      <td>{{ animal.lugarOrigen }}</td>
+      <td *ngIf="animal.tipo == 'Carnivoro'">{{ animal.cantidadComida }}</td>
+      <td *ngIf="animal.tipo == 'Carnivoro'">0</td>
+      <td *ngIf="animal.tipo == 'Herbivoro'">0</td>
+      <td *ngIf="animal.tipo == 'Herbivoro'">{{ animal.cantidadComida }}</td>
+      <td *ngIf="animal.tipo == 'Reptil'">{{ animal.cantidadComida / 2 }}</td>
+      <td *ngIf="animal.tipo == 'Reptil'">{{ animal.cantidadComida / 2 }}</td>
+    </tr>
+  </tbody>
+</nz-table>

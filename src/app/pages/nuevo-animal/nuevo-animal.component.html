@@ -1,0 +1,130 @@
+<form nz-form>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="especie">Tipo</nz-form-label>
+    <nz-form-control [nzSm]="6" [nzXs]="24">
+      <nz-select
+        nzShowSearch
+        nzAllowClear
+        nzPlaceHolder="Seleccione Tipo de Animal"
+        [(ngModel)]="animalSeleccionado"
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <nz-option
+          *ngFor="let tipo of tipoAnimales"
+          nzLabel="{{ tipo }}"
+          nzValue="{{ tipo }}"
+          >{{ tipo }}</nz-option
+        >
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div *ngIf="animalSeleccionado != '' && animalSeleccionado != null">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="especie"
+        >Especie</nz-form-label
+      >
+      <nz-form-control [nzSm]="6" [nzXs]="24">
+        <input
+          [(ngModel)]="animal.especie"
+          nz-input
+          name="especie"
+          type="text"
+          id="especie"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="edad">Edad</nz-form-label>
+      <nz-form-control [nzSm]="6" [nzXs]="24">
+        <input
+          [(ngModel)]="animal.edad"
+          nz-input
+          name="edad"
+          type="number"
+          id="edad"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lugarOrigen"
+        >Lugar de Origen</nz-form-label
+      >
+      <nz-form-control [nzSm]="6" [nzXs]="24">
+        <input
+          [(ngModel)]="animal.lugarOrigen"
+          nz-input
+          name="lugarOrigen"
+          type="text"
+          id="lugarOrigen"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="peso">Peso</nz-form-label>
+      <nz-form-control [nzSm]="6" [nzXs]="24">
+        <input
+          [(ngModel)]="animal.peso"
+          nz-input
+          name="peso"
+          type="number"
+          id="peso"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item *ngIf="animalSeleccionado != 'Herbivoro'">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="porcentaje"
+        >Porcentaje</nz-form-label
+      >
+      <nz-form-control [nzSm]="6" [nzXs]="24">
+        <input
+          [(ngModel)]="animal.porcentaje"
+          nz-input
+          name="porcentaje"
+          type="number"
+          id="porcentaje"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item *ngIf="animalSeleccionado == 'Herbivoro'">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="fijo">Fijo</nz-form-label>
+      <nz-form-control [nzSm]="6" [nzXs]="24">
+        <input
+          [(ngModel)]="animal.fijo"
+          nz-input
+          name="fijo"
+          type="number"
+          id="fijo"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item *ngIf="animalSeleccionado == 'Reptil'">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="dias"
+        >Dias Cambio de Piel</nz-form-label
+      >
+      <nz-form-control [nzSm]="6" [nzXs]="24">
+        <input
+          [(ngModel)]="animal.dias"
+          nz-input
+          name="dias"
+          type="number"
+          id="dias"
+        />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button (click)="crearAnimal()" nz-button nzType="primary">
+          Agregar Animal
+        </button>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</form>

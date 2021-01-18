@@ -1,0 +1,9 @@
+nz-form-control {
+  max-width: 200px !important;
+  width: 200px !important;
+}
+
+nz-select {
+  margin: 0 8px 10px 0 !important;
+  width: 120px !important;
+}
