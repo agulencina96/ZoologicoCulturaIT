@@ -54,7 +54,16 @@ export class NuevoAnimalComponent implements OnInit {
     this.animal.tipo = this.animalSeleccionado;
     this.api.crearAnimal(this.animal).subscribe(
       (res: any) => {
-        console.log(res);
+        this.animal = {
+          tipo: this.animalSeleccionado,
+          especie: '',
+          edad: 0,
+          lugarOrigen: '',
+          peso: 0,
+          porcentaje: 0,
+          fijo: 0,
+          dias: 0,
+        };
         this.message.create(
           'success',
           'Se agregó correctamente el nuevo animal'
